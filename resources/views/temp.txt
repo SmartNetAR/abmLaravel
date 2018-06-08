@@ -1,0 +1,34 @@
+                <td><a href="patente/123" class="btn btn-success">Modificar</a>
+                    <a href="patente/123" class="btn btn-success">Modificar</a>
+                    <button class="btn btn-danger">Eliminar</button></td>
+
+
+
+
+            <td>{{$auto->marca}}</td>
+            <!-- <td>{{$auto->modelo}}</td> -->
+            <!-- <td>{{$auto->anyo}}</td> -->
+            <!-- <td>{{$auto->color}}</td> -->
+            <!-- <td>{{$auto->patente}}</td> -->
+                <!-- <form method="POST" action='/eliminar'>
+                {{ csrf_field() }}
+                <input class="btn btn-success" type="button" value="Modificar">
+                </input></form>
+
+                <form method="GET" action='/home'>
+                <input class="btn btn-danger" type="button" value="Eliminar">
+                </input></form> -->
+
+                <!-- <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+                    {{ method_field('DELETE') }}
+                    {{ csrf_field() }}
+                    <button class="btn btn-danger">Delete Post</button>
+                </form> -->
+            <!-- </td> -->
+
+
+            <td><form action="{{ route('posts.destroy', $auto->id) }}" method="POST">
+                {{ method_field('DELETE') }}
+                {{ csrf_field() }}
+                <button class="btn btn-danger">Delete Post</button>
+            </form></td>
