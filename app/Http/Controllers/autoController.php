@@ -23,9 +23,11 @@ class autoController extends Controller
         $auto->anyo = $request->input('anyo');
         $auto->patente = $request->input('patente');
         $auto->color = $request->input('color');
-
         $auto->save();
-        return view('home');
+
+        $autos=auto::all();
+        return view('home',compact('autos'));
+        //return view('home');
     }
     
     public function showCars() {
