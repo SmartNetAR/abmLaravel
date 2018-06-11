@@ -115,4 +115,10 @@ class autosController extends Controller
         $autos=auto::all();
         return response()->json($autos);
     }
+
+    public function apiId($id)
+    {
+        $auto=auto::find($id);
+        return response()->json($auto);
+    }
 }
