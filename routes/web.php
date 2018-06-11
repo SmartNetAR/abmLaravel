@@ -10,17 +10,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::resource('autos','autosController');
 
-Route::get('/', 'autoController@showCars');
+Route::get('/', 'autosController@index');
 
-Route::get('/home', 'autoController@showCars');
+Route::get('/home', 'autosController@index');
 
-Route::get('/new', 'autoController@New');
+Route::get('/new', 'autosController@create');
+
+Route::get('autos.create','ClienteController@create');
 
 Route::post('/guardarAuto', 'autoController@SaveCar');
 
 // Route::post('/eliminar', 'autoController@deleteCar');
 
 Route::get('/patente/{id}', function($id) {
-    return "Estos son los datos de $id";
+    return "la id es $id";
 });

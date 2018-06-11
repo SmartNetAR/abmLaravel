@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <form class="form-horizontal col-xs-12" method="POST" action='/guardarAuto'>
+    <form class="form-horizontal col-xs-12" method="POST" action="{{ url('autos.store')}}">
     {{ csrf_field() }}
     <fieldset>
 

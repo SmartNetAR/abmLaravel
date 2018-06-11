@@ -14,7 +14,8 @@ class autosController extends Controller
      */
     public function index()
     {
-        //
+        $autos=auto::all();
+        return view('home',compact('autos'));
     }
 
     /**
@@ -24,7 +25,7 @@ class autosController extends Controller
      */
     public function create()
     {
-        //
+        return view('new');
     }
 
     /**
@@ -35,7 +36,16 @@ class autosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $auto = new auto;
+        $auto->marca = $request->input('marca');
+        $auto->modelo = $request->input('modelo');
+        $auto->anyo = $request->input('anyo');
+        $auto->patente = $request->input('patente');
+        $auto->color = $request->input('color');
+        $auto->save();
+
+        $autos=auto::all();
+        return view('home',compact('autos'));
     }
 
     /**
@@ -57,7 +67,8 @@ class autosController extends Controller
      */
     public function edit(auto $auto)
     {
-        //
+        $auto=autos::find($id);
+        return view('new',compact('cliente'));
     }
 
     /**
@@ -69,7 +80,16 @@ class autosController extends Controller
      */
     public function update(Request $request, auto $auto)
     {
-        //
+        $auto=customers::find($id); 
+        $auto->marca = $request->input('marca');
+        $auto->modelo = $request->input('modelo');
+        $auto->anyo = $request->input('anyo');
+        $auto->patente = $request->input('patente');
+        $auto->color = $request->input('color');
+        $auto->save();
+
+        $autos=auto::all();
+        return view('home',compact('autos'));
     }
 
     /**
@@ -80,6 +100,10 @@ class autosController extends Controller
      */
     public function destroy(auto $auto)
     {
-        //
+        $auto=customers::find($id);
+        $auto->delete();
+
+        $autos=auto::all();
+        return view('home',compact('autos'));
     }
 }
