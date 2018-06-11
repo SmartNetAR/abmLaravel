@@ -19,8 +19,9 @@
             </div>
             <ul class="nav navbar-nav">
             <!-- <li><a href="home">Inicio</a></li> -->
-            <li><a href="new">Nuevo</a></li>
-            <li><a href="home">Lista</a></li>
+            <li><a href="{{action('autosController@create')}}">Nuevo</a></li>
+            <li><a href="/">Lista</a></li>
+            <li><a href="/json">Json</a></li>
             <!-- <li><a href="eliminar">Page 3</a></li> -->
             </ul>
         </div>      
