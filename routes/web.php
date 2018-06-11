@@ -12,18 +12,22 @@
 */
 Route::resource('autos','autosController');
 
+// Route::resource('crud', 'CRUDController');
+
 Route::get('/', 'autosController@index');
 
-Route::get('/home', 'autosController@index');
+Route::get('/json', 'autosController@getJson');
 
-Route::get('/new', 'autosController@create');
+// Route::get('/home', 'autosController@index');
 
-Route::get('autos.create','ClienteController@create');
+// Route::get('/new', 'autosController@create');
 
-Route::post('/guardarAuto', 'autoController@SaveCar');
+// Route::get('autos.create','ClienteController@create');
 
-// Route::post('/eliminar', 'autoController@deleteCar');
+// Route::post('/guardarAuto', 'autoController@SaveCar');
 
-Route::get('/patente/{id}', function($id) {
-    return "la id es $id";
-});
+// // Route::post('/eliminar', 'autoController@deleteCar');
+
+// Route::get('/patente/{id}', function($id) {
+//     return "la id es $id";
+// });

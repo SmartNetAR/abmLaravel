@@ -25,7 +25,8 @@ class autosController extends Controller
      */
     public function create()
     {
-        return view('new');
+        $auto= new auto;
+        return view('new',compact('auto'));
     }
 
     /**
@@ -44,8 +45,9 @@ class autosController extends Controller
         $auto->color = $request->input('color');
         $auto->save();
 
-        $autos=auto::all();
-        return view('home',compact('autos'));
+        // $autos=auto::all();
+        // return view('home',compact('autos'));
+        return redirect('autos');
     }
 
     /**
@@ -67,8 +69,8 @@ class autosController extends Controller
      */
     public function edit(auto $auto)
     {
-        $auto=autos::find($id);
-        return view('new',compact('cliente'));
+        //$auto=auto::find($id);
+        return view('new',compact('auto'));
     }
 
     /**
@@ -80,7 +82,7 @@ class autosController extends Controller
      */
     public function update(Request $request, auto $auto)
     {
-        $auto=customers::find($id); 
+        // $auto=customers::find($id); 
         $auto->marca = $request->input('marca');
         $auto->modelo = $request->input('modelo');
         $auto->anyo = $request->input('anyo');
@@ -88,8 +90,9 @@ class autosController extends Controller
         $auto->color = $request->input('color');
         $auto->save();
 
-        $autos=auto::all();
-        return view('home',compact('autos'));
+        // $autos=auto::all();
+        // return view('home',compact('autos'));
+        return redirect('autos');
     }
 
     /**
@@ -100,10 +103,16 @@ class autosController extends Controller
      */
     public function destroy(auto $auto)
     {
-        $auto=customers::find($id);
+        //$auto=auto::find($id);
         $auto->delete();
 
+        
+        return redirect('autos');
+    }
+
+    public function getJson()
+    {
         $autos=auto::all();
-        return view('home',compact('autos'));
+        return response()->json($autos);
     }
 }
